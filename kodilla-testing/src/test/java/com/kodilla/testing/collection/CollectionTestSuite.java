@@ -31,27 +31,15 @@ public class CollectionTestSuite {
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         System.out.println("Checking for an empty list");
         //act
+        System.out.println("Warning! Exterminator have been activated!");
+        OddNumbersExterminator.exterminate(numbers);
         int result = numbers.size();
-        System.out.println("The size of an ArrayList named numbers is " + numbers.size());
+        System.out.println("The size of an ArrayList only with even numbers is " + numbers.size());
         //assert
         Assert.assertEquals(result, 0);
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
-        //arrange
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        for (int j = 0; j < 50; j++){
-            numbers.add(j);
-        }
-        System.out.println("List has been created. It contains both even and odd numbers");
-        //act
-        int result = numbers.size();
-        System.out.println("The size of an ArrayList named numbers is " + numbers.size());
-        //assert
-        Assert.assertEquals(result, 50);
-    }
-    @Test
-    public void testingExterminator(){
         //arrange
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         for (int j = 0; j < 50; j++){
@@ -64,7 +52,18 @@ public class CollectionTestSuite {
         int result = numbers.size();
         System.out.println("The size of an ArrayList only with even numbers is " + numbers.size());
         //assert
-        Assert.assertEquals(numbers.size(),25);
+        boolean isEven = true;
+        for (int j = 0; j < numbers.size(); j++){
+
+            if((numbers.get(j) %2) ==0){
+                isEven = true;
+            }else {
+                System.out.println("You failed badly...");
+                isEven = false;
+            }
+        }
+        System.out.println("Example elements of the array are: "+ numbers.get(5) + ", " + numbers.get(8) + ", " + numbers.get(12));
+        Assert.assertEquals(isEven, true);
+        System.out.println("Test completed. Array is made only from even numbers.");
     }
 }
-

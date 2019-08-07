@@ -8,13 +8,21 @@ import java.util.ArrayList;
 public class CollectionTestSuite {
 
     @BeforeClass
-    public static void before() {
+    public static void beforeClass() {
         System.out.println("The test is about to begin. First we will see how does the empty arraylist acts");
     }
     @AfterClass
-    public static void afterclass(){
+    public static void afterClass(){
         System.out.println("The test has ended. Good job.");
         System.out.println("Awaiting for Simons grade. Good luck.");
+    }
+    @Before
+    public void before(){
+        System.out.println("\nTest is about to start");
+    }
+    @After
+    public void after(){
+        System.out.println("Test completed. Proceeding.\n");
     }
 
     @Test
@@ -27,7 +35,6 @@ public class CollectionTestSuite {
         System.out.println("The size of an ArrayList named numbers is " + numbers.size());
         //assert
         Assert.assertEquals(result, 0);
-        System.out.println("First test accomplished. ArrayList is empty. Starting test number two");
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
@@ -42,7 +49,6 @@ public class CollectionTestSuite {
         System.out.println("The size of an ArrayList named numbers is " + numbers.size());
         //assert
         Assert.assertEquals(result, 50);
-        System.out.println("Third test accomplished. ArrayList contains both even and odd numbers.");
     }
     @Test
     public void testingExterminator(){
@@ -59,7 +65,6 @@ public class CollectionTestSuite {
         System.out.println("The size of an ArrayList only with even numbers is " + numbers.size());
         //assert
         Assert.assertEquals(numbers.size(),25);
-        System.out.println("Second test accomplished. ArrayList is containing only even numbers.Starting test number three");
     }
 }
 

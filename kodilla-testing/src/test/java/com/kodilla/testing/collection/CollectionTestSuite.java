@@ -46,18 +46,13 @@ public class CollectionTestSuite {
         numbers.add(5);
         //act
         OddNumbersExterminator.exterminate(numbers);
+        ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
+        for(int k = 0; k< numbers.size(); k ++){
+            evenNumbers.add(numbers.get(k));
+        }
         //assert
-        boolean isEven = true;
-        for (int j = 1; j < numbers.size(); j++){
-            if(((numbers.get(j)) %2) == 0){
-                isEven = true;
-            }else {
-                isEven = false;
-            }
+        for (int h = 0; h <numbers.size(); h++) {
+            Assert.assertEquals(evenNumbers.get(h), numbers.get(h));
         }
-        for (int d = 0; d< numbers.size(); d++) {
-            System.out.println(numbers.get(d));
-        }
-        Assert.assertEquals(isEven, true);
     }
 }

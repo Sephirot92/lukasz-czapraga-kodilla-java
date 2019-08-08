@@ -47,9 +47,8 @@ public class CollectionTestSuite {
         //act
         OddNumbersExterminator.exterminate(numbers);
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
-        for(int k = 0; k< numbers.size(); k ++){
-            evenNumbers.add(numbers.get(k));
-        }
+        evenNumbers.add(2);
+        evenNumbers.add(4);
         //assert
         for (int h = 0; h <numbers.size(); h++) {
             Assert.assertEquals(evenNumbers.get(h), numbers.get(h));

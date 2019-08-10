@@ -41,8 +41,7 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(triangle1);
 
         //when
-        Circle retrievedCircle;
-        retrievedCircle = (Circle)shapeCollector.getFigure(0);
+        Shape retrievedCircle = shapeCollector.getFigure(0);
 
         //then
         Assert.assertEquals(circle1, retrievedCircle);
@@ -96,4 +95,3 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(3, result);
     }
 }
-

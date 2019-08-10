@@ -6,21 +6,27 @@ public class ShapeCollector {
     private ArrayList<Shape> shapes= new ArrayList<Shape>();
 
     public void addFigure(Shape shape){
-        Square square1 = new Square("square1", 5);
-        shapes.add(square1);
+        shapes.add(shape);
     }
     public boolean removeFigure(Shape shape){
-        //temporarily return true
-        return true;
+        boolean result = false;
+        if(shapes.contains(shape)) {
+            shapes.remove(shape);
+            result = true;
+        }
+        return result;
     }
     public Shape getFigure (int n){
-        Shape theShape = null;
-        if (n >= 0 && n< shapes.size()){
-            theShape = shapes.get(n);
-        }return theShape;
+       Shape choice = shapes.get(n);
+       return choice;
     }
     public int showFigures(){
         int result = shapes.size();
+
+        for(int i =0; i < shapes.size(); i ++){
+            System.out.println(shapes.get(i));
+        }
+
         return result;
     }
 }

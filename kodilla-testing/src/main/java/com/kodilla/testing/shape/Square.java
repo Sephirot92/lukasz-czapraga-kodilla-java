@@ -43,4 +43,8 @@ public class Square implements Shape {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+    @Override
+    public String toString(){
+        return "Square name is " + name + " and it's side length is " + side;
+    }
 }

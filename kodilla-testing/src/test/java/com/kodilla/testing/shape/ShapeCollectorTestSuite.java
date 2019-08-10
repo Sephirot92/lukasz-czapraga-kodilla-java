@@ -15,6 +15,7 @@ public class ShapeCollectorTestSuite {
     }
     @Before
     public void beforeEveryTest(){
+        testCounter++;
         System.out.println("Preparing to execute test number " + testCounter);
     }
     @Test
@@ -29,7 +30,7 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(triangle1);
 
         //then
-        Assert.assertEquals(2, shapeCollector.showFigures());
+        Assert.assertEquals(2, shapeCollector.shapes.size());
     }
     @Test
     public void testGetFigure(){
@@ -75,10 +76,10 @@ public class ShapeCollectorTestSuite {
 
         //then
         Assert.assertTrue(result);
-        Assert.assertEquals(2, shapeCollector.showFigures());
+        Assert.assertEquals(2, shapeCollector.shapes.size());
     }
     @Test
-    public void testshowFigures(){
+    public void testShowFigures(){
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         Circle circle1 = new Circle("circle1", 12 );
@@ -89,9 +90,15 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(square1);
 
         //when
-        int result = shapeCollector.showFigures();
+        int shapesCount = shapeCollector.shapes.size();
 
         //then
-        Assert.assertEquals(3, result);
+        Assert.assertEquals(3, shapesCount);
+
+        System.out.println("\n");
+        for (int i = 0; i < shapeCollector.shapes.size(); i ++){
+            System.out.println(shapeCollector.shapes.get(i));
+        }
+        System.out.println("\n");
     }
 }

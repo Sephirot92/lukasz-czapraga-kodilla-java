@@ -25,7 +25,7 @@ public class ShapeCollectorTestSuite {
 
         //when
         Circle circle1 = new Circle("circle1", 12 );
-        Triangle triangle1 = new Triangle("triagle1", 12, 15);
+        Triangle triangle1 = new Triangle("triangle1", 12, 15);
         shapeCollector.addFigure(circle1);
         shapeCollector.addFigure(triangle1);
 
@@ -37,7 +37,7 @@ public class ShapeCollectorTestSuite {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         Circle circle1 = new Circle("circle1", 12 );
-        Triangle triangle1 = new Triangle("triagle1", 12, 15);
+        Triangle triangle1 = new Triangle("triangle1", 12, 15);
         shapeCollector.addFigure(circle1);
         shapeCollector.addFigure(triangle1);
 
@@ -52,7 +52,7 @@ public class ShapeCollectorTestSuite {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         Circle circle1 = new Circle("circle1", 12 );
-        Triangle triangle1 = new Triangle("triagle1", 12, 15);
+        Triangle triangle1 = new Triangle("triangle1", 12, 15);
         Square square1 = new Square("square1", 12);
         //when
         boolean result = shapeCollector.removeFigure(circle1);
@@ -65,7 +65,7 @@ public class ShapeCollectorTestSuite {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         Circle circle1 = new Circle("circle1", 12 );
-        Triangle triangle1 = new Triangle("triagle1", 12, 15);
+        Triangle triangle1 = new Triangle("triangle1", 12, 15);
         Square square1 = new Square("square1", 12);
         shapeCollector.addFigure(circle1);
         shapeCollector.addFigure(triangle1);
@@ -94,11 +94,5 @@ public class ShapeCollectorTestSuite {
 
         //then
         Assert.assertEquals(3, shapesCount);
-
-        System.out.println("\n");
-        for (int i = 0; i < shapeCollector.shapes.size(); i ++){
-            System.out.println(shapeCollector.shapes.get(i));
-        }
-        System.out.println("\n");
     }
 }

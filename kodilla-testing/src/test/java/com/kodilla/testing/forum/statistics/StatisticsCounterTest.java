@@ -50,13 +50,13 @@ public class StatisticsCounterTest {
         }
         when(statisticMock.commentsCount()).thenReturn(commentsCount.size());
 
-        StatisticsCounter statisticCounter = new StatisticsCounter(userNames.size(), postCount.size(), commentsCount.size());
+        StatisticsCounter statisticCounter = new StatisticsCounter(statisticMock.userNames().size(), statisticMock.postCount(), statisticMock.commentsCount());
         //When
         int totalNumberOfUsers = userNames.size();
         //Then
         Assert.assertEquals(100, totalNumberOfUsers);
-        Assert.assertEquals(1000, postCount.size());
-        Assert.assertEquals(2000, commentsCount.size());
+        Assert.assertEquals(1000, statisticMock.postCount());
+        Assert.assertEquals(2000, statisticMock.commentsCount());
         Assert.assertTrue(commentsCount.size() > postCount.size());
         statisticCounter.showStatistics();
     }
@@ -83,7 +83,7 @@ public class StatisticsCounterTest {
         }
         when(statisticMock.commentsCount()).thenReturn(commentsCount.size());
 
-        StatisticsCounter statisticCounter = new StatisticsCounter(userNames.size(), postCount.size(), commentsCount.size());
+        StatisticsCounter statisticCounter = new StatisticsCounter(statisticMock.userNames().size(), statisticMock.postCount(), statisticMock.commentsCount());
         //When
         int totalNumberOfUsers = userNames.size();
         //Then
@@ -114,7 +114,7 @@ public class StatisticsCounterTest {
         }
         when(statisticMock.commentsCount()).thenReturn(commentsCount.size());
 
-        StatisticsCounter statisticCounter = new StatisticsCounter(userNames.size(), postCount.size(), commentsCount.size());
+        StatisticsCounter statisticCounter = new StatisticsCounter(statisticMock.userNames().size(), statisticMock.postCount(), statisticMock.commentsCount());
         //When
         int totalNumberOfUsers = userNames.size();
         //Then

@@ -7,10 +7,6 @@ public class StatisticsCounter implements Statistics{
     protected int numberOfUsers;
     protected int numberOfPosts;
     protected int numberOfComments;
-    protected double avgPostPerUser;
-    protected double avgCommentsPerUser;
-    protected double avgCommentsPerPost;
-
 
     @Override
     public List<String> userNames() {
@@ -39,13 +35,10 @@ public class StatisticsCounter implements Statistics{
         return resultNumberOfComments.size();
     }
 
-    public StatisticsCounter(int numberOfUsers, int numberOfPosts, int numberOfComments, double avgPostPerUser, double avgCommentsPerUser, double avgCommentsPerPost) {
+    public StatisticsCounter(int numberOfUsers, int numberOfPosts, int numberOfComments) {
         this.numberOfUsers = numberOfUsers;
         this.numberOfPosts = numberOfPosts;
         this.numberOfComments = numberOfComments;
-        this.avgPostPerUser = avgPostPerUser;
-        this.avgCommentsPerUser = avgCommentsPerUser;
-        this.avgCommentsPerPost = avgCommentsPerPost;
     }
 
     public int getNumberOfUsers() {
@@ -59,30 +52,20 @@ public class StatisticsCounter implements Statistics{
     public int getNumberOfComments() {
         return numberOfComments;
     }
-
-    public double getAvgPostPerUser() {
-        return avgPostPerUser;
-    }
-
-    public double getAvgCommentsPerUser() {
-        return avgCommentsPerUser;
-    }
-
-    public double getAvgCommentsPerPost() {
-        return avgCommentsPerPost;
-    }
     public void calculateAdwStatistics(){
         numberOfUsers = userNames().size();
         numberOfPosts = postCount();
         numberOfComments = commentsCount();
-        avgPostPerUser = postCount() / userNames().size();
-        avgCommentsPerUser = commentsCount() / userNames().size();
-        avgCommentsPerPost = commentsCount() / postCount();
     }
     public void showStatistics(){
+        double avgPostPerUser = getNumberOfPosts() / getNumberOfUsers();
+        double avgCommentsPerUser = getNumberOfComments() / getNumberOfUsers();
+        double avgCommentsPerPost = getNumberOfComments() / getNumberOfPosts();
+
         System.out.println("Number of users: " + numberOfUsers);
         System.out.println("Number of posts: " + numberOfPosts);
         System.out.println("Number of comments: " + numberOfComments);
+        System.out.println("Number of average post per user: " + avgPostPerUser);
         System.out.println("Number of average comments per user: " + avgCommentsPerUser);
         System.out.println("Number of average comments per post: " + avgCommentsPerPost);
     }

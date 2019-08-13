@@ -3,71 +3,76 @@ package com.kodilla.testing.forum.statistics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatisticsCounter implements Statistics{
-    protected int numberOfUsers;
-    protected int numberOfPosts;
-    protected int numberOfComments;
+public class StatisticsCounter {
+    int usersNumber;
+    int postsNumber;
+    int  commentsNumber;
+    double avgPostsPerUser;
+    double avgCommentsPerUser;
+    double avgCommentsPerPost;
+    
+    public int getUsersNumber() {
+        return usersNumber;
+    }
+
+    public int getPostsNumber() {
+        return postsNumber;
+    }
+
+    public int getCommentsNumber() {
+        return commentsNumber;
+    }
+
+    public double getAvgPostsPerUser() {
+        return avgPostsPerUser;
+    }
+
+    public double getAvgCommentsPerUser() {
+        return avgCommentsPerUser;
+    }
+
+    public double getAvgCommentsPerPost() {
+        return avgCommentsPerPost;
+    }
 
     @Override
-    public List<String> userNames() {
-        numberOfUsers = userNames().size();
-        ArrayList<String> resultUserNames = new ArrayList<String>();
-        for (int i = 0; i < userNames().size(); i++)
-            resultUserNames.add(userNames().get(i));
-
-        return resultUserNames;
-    }
-    @Override
-    public int postCount() {
-        ArrayList<Integer> resultNumberOfPosts = new ArrayList<>();
-        for(int j=0; j <postCount(); j++) {
-            resultNumberOfPosts.add(j);
-        }
-        return resultNumberOfPosts.size();
+    public String toString() {
+        return "StatisticsCounter{" +
+                "usersNumber=" + usersNumber +
+                ", postsNumber=" + postsNumber +
+                ", commentsNumber=" + commentsNumber +
+                ", avgPostsPerUser=" + avgPostsPerUser +
+                ", avgCommentsPerUser=" + avgCommentsPerUser +
+                ", avgCommentsPerPost=" + avgCommentsPerPost +
+                '}';
     }
 
-    @Override
-    public int commentsCount() {
-        ArrayList<Integer> resultNumberOfComments = new ArrayList<>();
-        for(int k =0; k < commentsCount(); k++){
-            resultNumberOfComments.add(k);
-        }
-        return resultNumberOfComments.size();
-    }
-
-    public StatisticsCounter(int numberOfUsers, int numberOfPosts, int numberOfComments) {
-        this.numberOfUsers = numberOfUsers;
-        this.numberOfPosts = numberOfPosts;
-        this.numberOfComments = numberOfComments;
-    }
-
-    public int getNumberOfUsers() {
-        return numberOfUsers;
-    }
-
-    public int getNumberOfPosts() {
-        return numberOfPosts;
-    }
-
-    public int getNumberOfComments() {
-        return numberOfComments;
-    }
-    public void calculateAdwStatistics(){
-        numberOfUsers = userNames().size();
-        numberOfPosts = postCount();
-        numberOfComments = commentsCount();
+    public void calculateAdvStatistics(Statistics statistics){
+        usersNumber = statistics.userNames().size();
+        postsNumber = statistics.postCount();
+        commentsNumber = statistics.commentsCount();
+        avgPostsPerUser = getPostsNumber()/(float)getUsersNumber();
+        avgCommentsPerUser = getCommentsNumber()/(float)getUsersNumber();
+        avgCommentsPerPost = getCommentsNumber()/(float)getPostsNumber();
     }
     public void showStatistics(){
-        double avgPostPerUser = getNumberOfPosts() / getNumberOfUsers();
-        double avgCommentsPerUser = getNumberOfComments() / getNumberOfUsers();
-        double avgCommentsPerPost = getNumberOfComments() / getNumberOfPosts();
-
-        System.out.println("Number of users: " + numberOfUsers);
-        System.out.println("Number of posts: " + numberOfPosts);
-        System.out.println("Number of comments: " + numberOfComments);
-        System.out.println("Number of average post per user: " + avgPostPerUser);
-        System.out.println("Number of average comments per user: " + avgCommentsPerUser);
-        System.out.println("Number of average comments per post: " + avgCommentsPerPost);
+        System.out.println("Total number of users is " + usersNumber);
+        System.out.println("Total post number is " + postsNumber);
+        System.out.println("Total comments number is " + commentsNumber);
+        if (getPostsNumber()== 0 || getUsersNumber()==0){
+            System.out.println("Average posts per User is 0");
+        }else{
+            System.out.println("Average posts per User is " + avgPostsPerUser);
+        }
+        if (getCommentsNumber() == 0 || getUsersNumber()==0){
+            System.out.println("Average comments per User is 0");
+        }else{
+            System.out.println("Average comments per User is " + avgCommentsPerUser);
+        }
+        if (getAvgCommentsPerUser()==0 || getPostsNumber() == 0){
+            System.out.println("Average comments per Post is 0");
+        }else{
+            System.out.println("Average comments per Post is " + avgCommentsPerPost);
+        }
     }
 }
-

@@ -1,4 +1,6 @@
+/*
 package com.kodilla.testing.library;
+
 
 import org.junit.Test;
 
@@ -55,7 +57,7 @@ public class BookDirectoryTestSuite {
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBookWithCondition("ZeroBooks");
         List<Book> theListOfBooks15 = bookLibrary.listBookWithCondition("Any title");
-        List<Book> theListOfBooks40 = bookLibrary.listBookWithCondition("Forty Books");
+        List<Book> theListOfBooks40 = bookLibrary.listBookWithCondition("FortyBooks");
 
         //Then
         assertEquals(0, theListOfBooks0.size());
@@ -63,7 +65,7 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks40.size());
     }
     @Test
-    public void testListvookWithConditionFragmentShorterThan3(){
+    public void testListBookWithConditionFragmentShorterThan3(){
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -77,5 +79,14 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBookWithCondition(anyString());
     }
+    @Test
+    public void testLibraryUserWith0Books(){
+        //given
+
+        //when
+
+        //then
+    }
 
 }
+*/

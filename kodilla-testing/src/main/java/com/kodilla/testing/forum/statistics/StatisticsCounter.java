@@ -59,20 +59,8 @@ public class StatisticsCounter {
         System.out.println("Total number of users is " + usersNumber);
         System.out.println("Total post number is " + postsNumber);
         System.out.println("Total comments number is " + commentsNumber);
-        if (getPostsNumber()== 0 || getUsersNumber()==0){
-            System.out.println("Average posts per User is 0");
-        }else{
-            System.out.println("Average posts per User is " + avgPostsPerUser);
-        }
-        if (getCommentsNumber() == 0 || getUsersNumber()==0){
-            System.out.println("Average comments per User is 0");
-        }else{
-            System.out.println("Average comments per User is " + avgCommentsPerUser);
-        }
-        if (getAvgCommentsPerUser()==0 || getPostsNumber() == 0){
-            System.out.println("Average comments per Post is 0");
-        }else{
-            System.out.println("Average comments per Post is " + avgCommentsPerPost);
-        }
+        System.out.println("Average posts per User is " + avgPostsPerUser);
+        System.out.println("Average comments per User is " + avgCommentsPerUser);
+        System.out.println("Average comments per Post is " + avgCommentsPerPost);
     }
 }

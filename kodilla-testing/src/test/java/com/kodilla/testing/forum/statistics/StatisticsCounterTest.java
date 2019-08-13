@@ -36,24 +36,16 @@ public class StatisticsCounterTest {
         for(int i = 0; i < 100; i ++){
             userNames.add("User" + i);
         }
-        ArrayList<Integer> postCount = new ArrayList<Integer>();
-        for(int i = 0; i < 200; i ++){
-            postCount.add(i);
-        }
-        ArrayList<Integer> commentsCount = new ArrayList<Integer>();
-        for (int i = 0; i < 1000; i ++){
-            commentsCount.add(i);
-        }
+
         when(statisticsMock.userNames()).thenReturn(userNames);
-        when(statisticsMock.postCount()).thenReturn(postCount.size());
-        when(statisticsMock.commentsCount()).thenReturn(commentsCount.size());
+        when(statisticsMock.postCount()).thenReturn(200);
+        when(statisticsMock.commentsCount()).thenReturn(1000);
 
         StatisticsCounter counter = new StatisticsCounter();
 
-        counter.calculateAdvStatistics(statisticsMock);
-
         //When
         int totalNumberOfUsers = 100;
+        counter.calculateAdvStatistics(statisticsMock);
         //Then
         Assert.assertEquals(totalNumberOfUsers, counter.usersNumber);
         counter.showStatistics();
@@ -67,24 +59,15 @@ public class StatisticsCounterTest {
         for(int i = 0; i < 0; i ++){
             userNames.add("User" + i);
         }
-        ArrayList<Integer> postCount = new ArrayList<Integer>();
-        for(int i = 0; i < 0; i ++){
-            postCount.add(i);
-        }
-        ArrayList<Integer> commentsCount = new ArrayList<Integer>();
-        for (int i = 0; i < 0; i ++){
-            commentsCount.add(i);
-        }
         when(statisticsMock.userNames()).thenReturn(userNames);
-        when(statisticsMock.postCount()).thenReturn(postCount.size());
-        when(statisticsMock.commentsCount()).thenReturn(commentsCount.size());
+        when(statisticsMock.postCount()).thenReturn(0);
+        when(statisticsMock.commentsCount()).thenReturn(0);
 
         StatisticsCounter counter = new StatisticsCounter();
 
-        counter.calculateAdvStatistics(statisticsMock);
-
         //When
         int totalNumberOfUsers = 0;
+        counter.calculateAdvStatistics(statisticsMock);
         //Then
         Assert.assertEquals(totalNumberOfUsers, counter.usersNumber);
         counter.showStatistics();
@@ -107,15 +90,13 @@ public class StatisticsCounterTest {
             commentsCount.add(i);
         }
         when(statisticsMock.userNames()).thenReturn(userNames);
-        when(statisticsMock.postCount()).thenReturn(postCount.size());
-        when(statisticsMock.commentsCount()).thenReturn(commentsCount.size());
+        when(statisticsMock.postCount()).thenReturn(10000);
+        when(statisticsMock.commentsCount()).thenReturn(1000);
 
         StatisticsCounter counter = new StatisticsCounter();
 
-        counter.calculateAdvStatistics(statisticsMock);
-
         //When
-        int totalNumberOfUsers = 100;
+        counter.calculateAdvStatistics(statisticsMock);
         //Then
         Assert.assertTrue(counter.getCommentsNumber() < counter.getPostsNumber());
         counter.showStatistics();
@@ -138,15 +119,14 @@ public class StatisticsCounterTest {
             commentsCount.add(i);
         }
         when(statisticsMock.userNames()).thenReturn(userNames);
-        when(statisticsMock.postCount()).thenReturn(postCount.size());
-        when(statisticsMock.commentsCount()).thenReturn(commentsCount.size());
+        when(statisticsMock.postCount()).thenReturn(200);
+        when(statisticsMock.commentsCount()).thenReturn(1000);
 
         StatisticsCounter counter = new StatisticsCounter();
 
+        //When
         counter.calculateAdvStatistics(statisticsMock);
 
-        //When
-        int totalNumberOfUsers = 100;
         //Then
         Assert.assertTrue(counter.commentsNumber > counter.postsNumber);
         counter.showStatistics();

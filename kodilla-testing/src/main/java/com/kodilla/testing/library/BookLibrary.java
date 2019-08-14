@@ -1,4 +1,4 @@
-/*package com.kodilla.testing.library;
+package com.kodilla.testing.library;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,13 @@ public class BookLibrary {
 
     }
     public List<Book> listBooksInHadsOf(LibraryUser libraryUser){
-
-        return
+        List<Book> bookList = new ArrayList<Book>();
+        List<Book> userBooks = libraryDatabase.listBookInHAndsOf(libraryUser);
+        if(userBooks.size() == 0) return userBooks;
+        if(userBooks.size() == 1) return userBooks;
+        if(userBooks.size() == 5) return userBooks;
+        bookList = userBooks;
+        return bookList;
     }
 }
-*/
+

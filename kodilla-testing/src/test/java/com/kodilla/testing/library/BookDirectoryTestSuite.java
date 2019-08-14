@@ -1,7 +1,8 @@
-/*
+
 package com.kodilla.testing.library;
 
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -82,11 +83,62 @@ public class BookDirectoryTestSuite {
     @Test
     public void testLibraryUserWith0Books(){
         //given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser user1 = new LibraryUser("Johhn", "Howard", "85122563975");
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultList0 = new ArrayList<Book>();
+
+        when(libraryDatabaseMock.listBookInHAndsOf(user1)).thenReturn(resultList0);
 
         //when
+        List<Book> theListOf0Books = bookLibrary.listBooksInHadsOf(user1);
 
         //then
+        Assert.assertEquals(0, theListOf0Books.size());
     }
+    @Test
+    public void testLibraryUserWith1Book(){
+        //given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser user1 = new LibraryUser("Johhn", "Howard", "85122563975");
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultList0 = new ArrayList<Book>();
+        Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);
+        resultList0.add(book1);
 
+        when(libraryDatabaseMock.listBookInHAndsOf(user1)).thenReturn(resultList0);
+
+        //when
+        List<Book> theListOf0Books = bookLibrary.listBooksInHadsOf(user1);
+
+        //then
+        Assert.assertEquals(1, theListOf0Books.size());
+    }
+    @Test
+    public void testLibraryUserWith5Books(){
+        //given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser user1 = new LibraryUser("Johhn", "Howard", "85122563975");
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultList0 = new ArrayList<Book>();
+        Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);
+        Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);
+        Book book3 = new Book("Secret life of programmers", "Steve Wolkowitz", 2016);
+        Book book4 = new Book("Secrets of Java", "Ian Tenewitch", 2010);
+        Book book5 = new Book ("Harry Throtter", "Me", 2019);
+        resultList0.add(book1);
+        resultList0.add(book2);
+        resultList0.add(book3);
+        resultList0.add(book4);
+        resultList0.add(book5);
+
+
+        when(libraryDatabaseMock.listBookInHAndsOf(user1)).thenReturn(resultList0);
+
+        //when
+        List<Book> theListOf0Books = bookLibrary.listBooksInHadsOf(user1);
+
+        //then
+        Assert.assertEquals(5, theListOf0Books.size());
+    }
 }
-*/

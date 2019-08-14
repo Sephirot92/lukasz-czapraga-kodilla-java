@@ -20,9 +20,6 @@ public class BookLibrary {
     }
     public List<Book> listBooksInHadsOf(LibraryUser libraryUser){
         List<Book> userBooks = libraryDatabase.listBookInHAndsOf(libraryUser);
-        if(userBooks.size() == 0) return userBooks;
-        if(userBooks.size() == 1) return userBooks;
-        if(userBooks.size() == 5) return userBooks;
         return userBooks;
     }
 }

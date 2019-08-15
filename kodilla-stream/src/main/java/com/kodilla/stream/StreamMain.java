@@ -23,11 +23,11 @@ public class StreamMain {
         PoemBeautifier beatufiedText = new PoemBeautifier();
 
         System.out.println("\n Time to have fun with POemBeatufier");
-        beatufiedText.textToBeautify("NaNaNaNaNa", " Shazam!", ((toBeBeatufied, beautification) -> toBeBeatufied + beautification));
-        beatufiedText.textToBeautify("SHAZAAAAAAM!!!", "Wait, what...",((toBeBeatufied, beautification) -> (beautification + toBeBeatufied)));
-        beatufiedText.textToBeautify("na", "ba", ((toBeBeatufied, beautification) -> beautification + toBeBeatufied +toBeBeatufied + ("!!!!!!")));
-        beatufiedText.textToBeautify("shazam...!", "ugh....", ((toBeBeatufied, beautification) -> (beautification + toBeBeatufied).toUpperCase()));
-        beatufiedText.textToBeautify(" SO MUCH SPACE           ", "    SIMON ", ((toBeBeatufied, beautification) -> (beautification + toBeBeatufied).trim()));
+        beatufiedText.textToBeautify("NaNaNaNaNa", ((toBeBeatufied) -> "Banananana"+ toBeBeatufied));
+        beatufiedText.textToBeautify("SHAZAAAAAAM!!!",((toBeBeatufied) -> ("Wait, what..." + toBeBeatufied)));
+        beatufiedText.textToBeautify("ba", ((toBeBeatufied) -> toBeBeatufied + "na" + "na" + "!!!!!!"));
+        beatufiedText.textToBeautify("shazam...!", ((toBeBeatufied) -> (toBeBeatufied).toUpperCase()));
+        beatufiedText.textToBeautify(" SO MUCH SPACE ", ((toBeBeatufied) -> (toBeBeatufied).toLowerCase() + "Chief"));
     }
 
 }

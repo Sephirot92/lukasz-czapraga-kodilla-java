@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
@@ -28,6 +29,9 @@ public class StreamMain {
         beatufiedText.textToBeautify("ba", ((toBeBeatufied) -> toBeBeatufied + "na" + "na" + "!!!!!!"));
         beatufiedText.textToBeautify("shazam...!", ((toBeBeatufied) -> (toBeBeatufied).toUpperCase()));
         beatufiedText.textToBeautify(" SO MUCH SPACE ", ((toBeBeatufied) -> (toBeBeatufied).toLowerCase() + "Chief"));
+
+        System.out.println("Using stream to generate even numbers from 1 to 100");
+        NumbersGenerator.generateEven(100);
     }
 
 }

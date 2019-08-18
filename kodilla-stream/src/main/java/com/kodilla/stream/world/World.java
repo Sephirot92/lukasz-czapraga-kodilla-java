@@ -13,9 +13,15 @@ public class World {
     public void addContinent(Continent continent){
         continents.add(continent);
     }
-    public Set<BigDecimal> getPeopleQuantity(){
+
+    public List<Continent> getContinents() {
+        return continents;
+    }
+
+    public BigDecimal getPeopleQuantity(){
         return continents.stream()
-                .flatMap(countries -> countries.getPeopleQuantity().stream())
-                .collect(Collectors.toSet());
+                .flatMap(countries -> countries.getCountries().stream())
+                .map(Country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

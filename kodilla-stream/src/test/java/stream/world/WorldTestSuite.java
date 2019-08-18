@@ -19,25 +19,29 @@ public class WorldTestSuite {
         World worldall = new World();
 
         //when
-        Continent europe = new Continent();
-        europe.addCountry(new Country("Poland", new BigDecimal("40")));
-        europe.addCountry(new Country("Germany", new BigDecimal("60")));
-        europe.addCountry(new Country("France", new BigDecimal("82")));
+        List<Country> europeCountries = new ArrayList<>();
+        europeCountries.add(new Country("Poland", new BigDecimal("40")));
+        europeCountries.add(new Country("Germany", new BigDecimal("60")));
+        europeCountries.add(new Country("France", new BigDecimal("82")));
 
-        Continent asia = new Continent();
-        asia.addCountry(new Country("China", new BigDecimal("1600")));
-        asia.addCountry(new Country("Indie", new BigDecimal("1100")));
-        asia.addCountry(new Country("South Korea", new BigDecimal("75")));
+        List<Country> asiaCountries = new ArrayList<>();
+        asiaCountries.add(new Country("China", new BigDecimal("1600")));
+        asiaCountries.add(new Country("Indie", new BigDecimal("1100")));
+        asiaCountries.add(new Country("South Korea", new BigDecimal("75")));
 
-        Continent africa = new Continent();
-        africa.addCountry(new Country("PRA", new BigDecimal("100")));
-        africa.addCountry(new Country("Jemen", new BigDecimal("20")));
-        africa.addCountry(new Country("Nigeria", new BigDecimal("25")));
+        List<Country> africaCountries = new ArrayList<>();
+        africaCountries.add(new Country("PRA", new BigDecimal("100")));
+        africaCountries.add(new Country("Jemen", new BigDecimal("20")));
+        africaCountries.add(new Country("Nigeria", new BigDecimal("25")));
+
+        Continent europe = new Continent(europeCountries);
+        Continent asia = new Continent(asiaCountries);
+        Continent africa = new Continent(africaCountries);
 
         World world = new World();
-        world.addContinent(africa);
-        world.addContinent(asia);
         world.addContinent(europe);
+        world.addContinent(asia);
+        world.addContinent(africa);
 
         //when
         BigDecimal totalPeople = world.getPeopleQuantity();

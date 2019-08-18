@@ -1,5 +1,6 @@
 package stream.world;
 
+import com.kodilla.stream.sand.Europe;
 import com.kodilla.stream.world.Continent;
 import com.kodilla.stream.world.Country;
 import com.kodilla.stream.world.World;
@@ -13,19 +14,17 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity(){
         //given
-        Country poland = new Country("Poland", new BigDecimal("40000000"));
-        Country germany = new Country("Germany", new BigDecimal("52000000"));
-        Country
-        List<World> worldAll= new ArrayList<>();
+        World worldall = new World();
 
         //when
-        worldAll.add(new Continent(new Country("France", new BigDecimal("125000000")))));
-        worldAll.add(new World(new Continent(new Country("Serbia", new BigDecimal("1250000")))));
-        worldAll.add(new World(new Continent(new Country("Montenegro", new BigDecimal("25000000")))));
+        worldall.addContinent(new Continent(new Country("Poland", new BigDecimal("40000000"))));
+        worldall.addContinent(new Continent(new Country("Argentina", new BigDecimal("112000000"))));
+        worldall.addContinent(new Continent(new Country("Republic of Sounth Africa", new BigDecimal("60000000"))));
 
-        BigDecimal totalPeople = worldAll.stream()
+        BigDecimal totalPeople = worldall.getPeopleQuantity().stream()
                 .map(World::getPeopleQuantity)
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+
+
         }
 
         //then

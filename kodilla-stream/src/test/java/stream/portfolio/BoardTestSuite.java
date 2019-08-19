@@ -8,10 +8,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
@@ -109,5 +111,25 @@ public class BoardTestSuite {
 
         //then
         Assert.assertEquals(2, longTasks);
+    }
+    @Test
+    public void testAddTaskListAverageWorkingOnTask(){
+
+        //given
+        Board project = prepareTestData();
+
+        int [] end;
+
+        //when
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        long tasksBegan = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(w-> Period.between(w.getCreated(), w.getDeadline()))
+                .count();
+
+        ///then
+        Assert.assertEquals(3, tasksBegan);
     }
 }

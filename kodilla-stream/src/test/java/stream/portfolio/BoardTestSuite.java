@@ -118,18 +118,27 @@ public class BoardTestSuite {
         //given
         Board project = prepareTestData();
 
-        int [] end;
-
         //when
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        long tasksBegan = project.getTaskLists().stream()
+        double tasksBegan = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(w-> Period.between(w.getCreated(), w.getDeadline()))
                 .count();
 
-        ///then
-        Assert.assertEquals(3, tasksBegan);
+        List<Integer> taskAvg = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(w -> w.getTasks().stream())
+                .map(w-> Period.between(w.getCreated(), LocalDate.now()).getDays())
+                .collect(toList());
+
+        long sum = 0;
+        for (int i = 0; i < taskAvg.size(); i ++){
+            sum += taskAvg.get(i);
+        }
+        long averageTotal = (long) (sum/tasksBegan);
+
+        //then
+        Assert.assertEquals((long)10, averageTotal);
     }
 }

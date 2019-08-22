@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -121,7 +122,7 @@ public class BoardTestSuite {
         //when
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        double tasksBegan = project.getTaskLists().stream()
+        /*double tasksBegan = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .count();
@@ -136,9 +137,29 @@ public class BoardTestSuite {
         for (int i = 0; i < taskAvg.size(); i ++){
             sum += taskAvg.get(i);
         }
-        long averageTotal = (long) (sum/tasksBegan);
+        long averageTotal = (long) (sum/tasksBegan);*/ //Method createn by me and Simon. Little complicated.
+
+        double averageTotal = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(w -> ChronoUnit.DAYS.between(w.getCreated(), LocalDate.now())) //Skrócenie metody. Nie posiada ona ciała, ani {}. JEst to specjalny przypadek. Większość są to te proste przypadki.
+
+                // /Jednakże standardowa lamba jest taka, jak niżej
+//                .map(d->{   //Wyrażenie lamba ma tutaj ciało i listę argumentów. Stało się normalną metodą bez nazwy (Metoda anonimowa :D) Został zadeklarowany w linii gdzie jest wykorzystywany.
+//                    System.out.println(d);  //W specjalnych wydarzeniach, gdzie jest tylko jedna linia, możemy pominąć return i także - {}. wówczas lambda będzie wyglądała tak kak wygląda w 145.
+//                    return d;
+//                })
+                .map(this::display) //Metoda ta umożliwia ponowne użycie kodu wewnątrz klasy i odwołanie się do niego. Jeśli nie masz kodu do użycia, możesz go napisać jako metodę anonimową - wyrażenie lambda.
+                .mapToLong(d -> d)
+                .average()
+                .getAsDouble();
 
         //then
-        Assert.assertEquals((long)10, averageTotal);
+        Assert.assertEquals(10, averageTotal, 0.001);
+
+    }
+    private Long display(Long d){
+        System.out.println(d);
+        return d;
     }
 }

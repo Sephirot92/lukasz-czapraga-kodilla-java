@@ -18,14 +18,5 @@ public class ExceptionModuleRunner {
 //        FileReaderWithoutHandling fileReaderWithoutHandling = new FileReaderWithoutHandling();
        // fileReaderWithoutHandling.readFile();
 
-        SecondChallenge secondChallenge = new SecondChallenge();
-
-        try {
-            secondChallenge.probablyWillThrowException(2,6);
-        }catch (ExceptionHandling e){
-            System.out.print("Task done");
-        }finally {
-            System.out.println("Hey, I feel good at this!  :)");
-        }
     }
 }

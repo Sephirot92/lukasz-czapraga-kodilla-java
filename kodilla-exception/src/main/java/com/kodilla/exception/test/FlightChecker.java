@@ -14,16 +14,21 @@ public class FlightChecker {
         flightMap.put("Cracow", true);
         flightMap.put("Glasgow", false);
 
-        boolean answer = false;
-
         for(Map.Entry<String, Boolean> entry : flightMap.entrySet()){
-            if (flight.getDepartureAirport() == entry.getKey()){
+            /*if (flight.getDepartureAirport() == entry.getKey()){
                 System.out.println("This flight is avaible");
                 answer = true;
             }else{
                 throw new RouteNotFoundException("This airport is not support. Please try different one");
+            }*/ //This version was createn by me. It is goot, but it can be upgraded
+
+            //Chief solution
+            if(flightMap.containsKey(flight.getDepartureAirport())){
+                return flightMap.get(flight.getDepartureAirport());
+            }else{
+                throw new RouteNotFoundException("This airport is not support. Please try different one");
             }
         }
-        return answer;
+        return flightMap.get(flightMap.entrySet().contains(flight.getDepartureAirport()));
     }
 }

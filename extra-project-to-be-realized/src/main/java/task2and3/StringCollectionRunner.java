@@ -6,12 +6,18 @@ public class StringCollectionRunner {
 
         stringCollection.addElement("Meow");
         stringCollection.addElement("Hau");
+        stringCollection.addElement("Pipi");
 
-        String check = String.valueOf(stringCollection.getElement(1));
-        String check1 = String.valueOf(stringCollection.getElement(2));
+        stringCollection.removeElement("Hau");
+
+        System.out.println(stringCollection.getElement(1));
+
+        String check = String.valueOf(stringCollection.getElement(0));
+        String check1 = String.valueOf(stringCollection.getElement(1));
 
         System.out.println(check);
-
+        System.out.println(check1);
+//
     }
 
 }

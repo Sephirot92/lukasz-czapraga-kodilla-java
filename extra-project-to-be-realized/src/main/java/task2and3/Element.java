@@ -33,8 +33,6 @@ public class Element {
     public String toString() {
         return "Element{" +
                 "value='" + value + '\'' +
-                ", next=" + next +
-                ", prev=" + prev +
                 '}';
     }
 

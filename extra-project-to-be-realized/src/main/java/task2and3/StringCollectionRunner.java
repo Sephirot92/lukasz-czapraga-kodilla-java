@@ -17,7 +17,6 @@ public class StringCollectionRunner {
 
         System.out.println(check);
         System.out.println(check1);
-//
     }
 
 }

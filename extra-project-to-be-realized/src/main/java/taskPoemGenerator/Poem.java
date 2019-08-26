@@ -25,7 +25,7 @@ public class Poem {
             Random randomVerseGenerator = new Random();
 
             for (int i = 0; i < randomVerseGenerator.nextInt(10); i ++){
-                Sentence sentence = new Sentence(subject.generate(), proclamation.generate(), adverbials.get(randoms.nextInt(3)) );
+                Sentence sentence = new Sentence(subject.generate(), proclamation.generate(), adverbials.get(randoms.nextInt(adverbials.size())) );
 
                 System.out.println(sentence);
                 System.out.println();

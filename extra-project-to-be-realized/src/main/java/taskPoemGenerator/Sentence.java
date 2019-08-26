@@ -25,11 +25,7 @@ public class Sentence {
 
     @Override
     public String toString() {
-        return "Sentence{" +
-                "subject='" + subject + '\'' +
-                ", proclamation='" + proclamation + '\'' +
-                ", adverbial='" + adverbial + '\'' +
-                '}';
+        return subject + ' ' + proclamation + " " + adverbial;
     }
 
 }

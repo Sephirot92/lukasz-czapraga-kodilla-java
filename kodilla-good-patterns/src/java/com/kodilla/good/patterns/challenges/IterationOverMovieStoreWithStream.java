@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package java.com.kodilla.good.patterns.challenges;
 
 public class IterationOverMovieStoreWithStream {
     public static void main (String [] args){

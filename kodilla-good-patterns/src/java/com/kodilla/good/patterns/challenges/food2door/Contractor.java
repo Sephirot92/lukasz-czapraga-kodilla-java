@@ -1,6 +1,8 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-public class Contractor implements OrderingProcess{
+import java.util.List;
+
+public class Contractor implements OrderMasterInterface{
     private String contractorName;
     protected String isContractorAvaible;
 
@@ -21,7 +23,7 @@ public class Contractor implements OrderingProcess{
 
     public String welcomeToTheShop(){
         if (contractorName != null){
-            isContractorAvaible = "Welcome to " + contractorName + ". Below you can see our product list: ";
+            isContractorAvaible = "Welcome to " + contractorName;
         }else{
             isContractorAvaible = "We are sorry! There is no such contractor cooperating with us.";
         }
@@ -33,11 +35,16 @@ public class Contractor implements OrderingProcess{
     public String process() {
 
         if (contractorName != null){
-            isContractorAvaible = "\nThank you for making an order in " + contractorName + ". ";
+            isContractorAvaible = "Thank you for making an order in " + contractorName + ". \n";
         }else{
-            isContractorAvaible = "\nWe are sorry! There is no such contractor cooperating with us.";
+            isContractorAvaible = "We are sorry! There is no such contractor cooperating with us.\n";
         }
         System.out.println(isContractorAvaible);
         return isContractorAvaible;
+    }
+
+    @Override
+    public List productListOutprint() {
+        return null;
     }
 }

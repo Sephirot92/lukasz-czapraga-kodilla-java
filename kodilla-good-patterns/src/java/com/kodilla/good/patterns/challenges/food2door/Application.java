@@ -1,32 +1,29 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 public class Application {
     public static void main (String [] args){
 
-        GlutenFreeShop glutenFreeShop = new GlutenFreeShop("Gluten Free Shop");
-        glutenFreeShop.welcomeToTheShop();
-        glutenFreeShop.productListOutprint();
-        glutenFreeShop.process();
+     ContractorFactory contractorFactory = new ContractorFactory();
 
-        System.out.println();
 
-        HealthyShop healthyShop = new HealthyShop("Healthy Shop");
-        healthyShop.welcomeToTheShop();
-        healthyShop.productListOutprint();
-        healthyShop.process();
+     OrderProcessor orderProcessor = new OrderProcessor(contractorFactory.getContractor("HealthyShop"));
+     orderProcessor.getContractor().welcomeToTheShop();
+     orderProcessor.buyProcess();
+     orderProcessor.getContractor().process();
 
-        System.out.println();
 
-        ExtraFoodShop extraFoodShop = new ExtraFoodShop("Extra Food Shop");
-        extraFoodShop.welcomeToTheShop();
-        extraFoodShop.productListOutprint();
-        extraFoodShop.process();
+     orderProcessor = new OrderProcessor(contractorFactory.getContractor("ExtraFoodShop"));
+     orderProcessor.getContractor().welcomeToTheShop();
+     orderProcessor.buyProcess();
+     orderProcessor.getContractor().process();
 
-        System.out.println();
+     orderProcessor = new OrderProcessor(contractorFactory.getContractor("GlutenFreeShop"));
+     orderProcessor.getContractor().welcomeToTheShop();
+     orderProcessor.buyProcess();
+     orderProcessor.getContractor().process();
 
-        ExtraFoodShop testShop = new ExtraFoodShop(null);
-        testShop.welcomeToTheShop();
-        testShop.process();
 
     }
 }

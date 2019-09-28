@@ -22,7 +22,7 @@ public class Contractor implements OrderMasterInterface{
     }
 
     public String welcomeToTheShop(){
-        if (contractorName != null){
+        if (contractorName != "" && contractorName != null){
             isContractorAvaible = "Welcome to " + contractorName;
         }else{
             isContractorAvaible = "We are sorry! There is no such contractor cooperating with us.";
@@ -34,7 +34,7 @@ public class Contractor implements OrderMasterInterface{
     @Override
     public String process() {
 
-        if (contractorName != null){
+        if (contractorName != "" && contractorName != null){
             isContractorAvaible = "Thank you for making an order in " + contractorName + ". \n";
         }else{
             isContractorAvaible = "We are sorry! There is no such contractor cooperating with us.\n";

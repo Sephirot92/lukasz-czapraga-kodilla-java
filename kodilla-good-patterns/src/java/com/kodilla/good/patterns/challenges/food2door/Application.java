@@ -5,25 +5,10 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 public class Application {
     public static void main (String [] args){
 
-     ContractorFactory contractorFactory = new ContractorFactory();
-
-
-     OrderProcessor orderProcessor = new OrderProcessor(contractorFactory.getContractor("HealthyShop"));
-     orderProcessor.getContractor().welcomeToTheShop();
+     OrderProcessor orderProcessor = new OrderProcessor(new Contractor("GlutenFreeShop"));
      orderProcessor.buyProcess();
-     orderProcessor.getContractor().process();
 
-
-     orderProcessor = new OrderProcessor(contractorFactory.getContractor("ExtraFoodShop"));
-     orderProcessor.getContractor().welcomeToTheShop();
-     orderProcessor.buyProcess();
-     orderProcessor.getContractor().process();
-
-     orderProcessor = new OrderProcessor(contractorFactory.getContractor("GlutenFreeShop"));
-     orderProcessor.getContractor().welcomeToTheShop();
-     orderProcessor.buyProcess();
-     orderProcessor.getContractor().process();
-
-
+     OrderProcessor orderProcessorTest = new OrderProcessor(new Contractor(""));
+     orderProcessorTest.buyProcess();
     }
 }

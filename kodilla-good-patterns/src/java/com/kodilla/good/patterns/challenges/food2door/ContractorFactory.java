@@ -6,14 +6,14 @@ public class ContractorFactory {
     public static final String HEALTHY_SHOP = "HealthyShop";
     public static final String GLUTEN_FREE_SHOP = "GlutenFreeShop";
 
-    public Contractor getContractor(String contractorName){
-        if (contractorName.equalsIgnoreCase(EXTRA_FOOD_SHOP)){
+    public Contractor getContractor(String contractorName) {
+        if (contractorName.equalsIgnoreCase(EXTRA_FOOD_SHOP)) {
             return new ExtraFoodShop(EXTRA_FOOD_SHOP);
-        }else if(contractorName.equalsIgnoreCase(HEALTHY_SHOP)){
+        } else if (contractorName.equalsIgnoreCase(HEALTHY_SHOP)) {
             return new HealthyShop(HEALTHY_SHOP);
-        }else if(contractorName.equalsIgnoreCase(GLUTEN_FREE_SHOP)){
+        } else if (contractorName.equalsIgnoreCase(GLUTEN_FREE_SHOP)) {
             return new GlutenFreeShop(GLUTEN_FREE_SHOP);
-        }else{
+        } else {
             System.out.println("Warning, no contractor selected.");
             return null;
         }

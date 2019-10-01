@@ -1,9 +1,9 @@
 package com.kodilla.good.patterns.challenges.service;
 
 public class Application {
-    public static void main (String [] args){
+    public static void main(String[] args) {
         User buyer = new User("Mark", "markthebuyer89");
-        User seller = new User ("Marcus", "robotswillruletheworld");
+        User seller = new User("Marcus", "robotswillruletheworld");
 
         ProductToBeSold lampToHouse = new ProductToBeSold("House", "Lamp", 50);
         ProductToBeSold toothbrush = new ProductToBeSold("Hygiene", "Colgate Toothbrush", 100);

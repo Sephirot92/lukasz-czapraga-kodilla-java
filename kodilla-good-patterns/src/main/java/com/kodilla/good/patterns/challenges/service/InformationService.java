@@ -11,15 +11,15 @@ public class InformationService {
         return possibleWaysToInform;
     }
 
-    public boolean isInformationAvaible(){
+    public boolean isInformationAvaible() {
         boolean informationPossibility;
-        if (possibleWaysToInform == "Phone"){
+        if (possibleWaysToInform == "Phone") {
             System.out.println("Client will be informed by SMS");
             informationPossibility = true;
-        }else if (possibleWaysToInform == "Email"){
+        } else if (possibleWaysToInform == "Email") {
             System.out.println("Client will be informed by an Email");
             informationPossibility = true;
-        }else {
+        } else {
             System.out.println("There is no option to contact with this client");
             informationPossibility = false;
         }

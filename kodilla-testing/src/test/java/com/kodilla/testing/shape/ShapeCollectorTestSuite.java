@@ -6,25 +6,28 @@ public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
 
     @BeforeClass
-    public static void beforeAllTests(){
+    public static void beforeAllTests() {
         System.out.println("This is the beggining of tests");
     }
+
     @AfterClass
-    public static void afterAllTests(){
+    public static void afterAllTests() {
         System.out.println("All tests are finished");
     }
+
     @Before
-    public void beforeEveryTest(){
+    public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test number " + testCounter);
     }
+
     @Test
-    public void testAddFigure(){
+    public void testAddFigure() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
 
         //when
-        Circle circle1 = new Circle("circle1", 12 );
+        Circle circle1 = new Circle("circle1", 12);
         Triangle triangle1 = new Triangle("triangle1", 12, 15);
         shapeCollector.addFigure(circle1);
         shapeCollector.addFigure(triangle1);
@@ -32,11 +35,12 @@ public class ShapeCollectorTestSuite {
         //then
         Assert.assertEquals(2, shapeCollector.shapes.size());
     }
+
     @Test
-    public void testGetFigure(){
+    public void testGetFigure() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle1 = new Circle("circle1", 12 );
+        Circle circle1 = new Circle("circle1", 12);
         Triangle triangle1 = new Triangle("triangle1", 12, 15);
         shapeCollector.addFigure(circle1);
         shapeCollector.addFigure(triangle1);
@@ -47,11 +51,12 @@ public class ShapeCollectorTestSuite {
         //then
         Assert.assertEquals(circle1, retrievedCircle);
     }
+
     @Test
-    public void testRemoveFigNotExisting(){
+    public void testRemoveFigNotExisting() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle1 = new Circle("circle1", 12 );
+        Circle circle1 = new Circle("circle1", 12);
         Triangle triangle1 = new Triangle("triangle1", 12, 15);
         Square square1 = new Square("square1", 12);
         //when
@@ -60,11 +65,12 @@ public class ShapeCollectorTestSuite {
         //then
         Assert.assertFalse(result);
     }
+
     @Test
-    public void testRemoveFigure(){
+    public void testRemoveFigure() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle1 = new Circle("circle1", 12 );
+        Circle circle1 = new Circle("circle1", 12);
         Triangle triangle1 = new Triangle("triangle1", 12, 15);
         Square square1 = new Square("square1", 12);
         shapeCollector.addFigure(circle1);
@@ -78,11 +84,12 @@ public class ShapeCollectorTestSuite {
         Assert.assertTrue(result);
         Assert.assertEquals(2, shapeCollector.shapes.size());
     }
+
     @Test
-    public void testShowFigures(){
+    public void testShowFigures() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle1 = new Circle("circle1", 12 );
+        Circle circle1 = new Circle("circle1", 12);
         Triangle triangle1 = new Triangle("triagle1", 12, 15);
         Square square1 = new Square("square1", 12);
         shapeCollector.addFigure(circle1);

@@ -1,10 +1,8 @@
 package stream.world;
 
-import com.kodilla.stream.sand.Europe;
 import com.kodilla.stream.world.Continent;
 import com.kodilla.stream.world.Country;
 import com.kodilla.stream.world.World;
-import com.sun.corba.se.impl.orbutil.closure.Constant;
 import org.junit.Assert;
 import org.junit.Test;
 

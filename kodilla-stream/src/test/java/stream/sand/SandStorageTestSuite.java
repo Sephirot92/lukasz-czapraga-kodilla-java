@@ -4,7 +4,6 @@ import com.kodilla.stream.sand.Africa;
 import com.kodilla.stream.sand.Asia;
 import com.kodilla.stream.sand.Europe;
 import com.kodilla.stream.sand.SandStorage;
-import com.sun.xml.internal.ws.policy.AssertionSet;
 import org.junit.Assert;
 import org.junit.Test;
 

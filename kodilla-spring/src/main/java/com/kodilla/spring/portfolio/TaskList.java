@@ -6,7 +6,7 @@ import java.util.List;
 public final class TaskList {
     final List<String> tasks;
 
-    public TaskList(final List<String> tasks) {
+    public TaskList() {
         this.tasks = new ArrayList<>();
     }
 

@@ -5,21 +5,22 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "ITEM")
+@Table(name = "ITEMS")
 public class Item {
     private int id;
     private Product product;
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
+    private Invoice invoice;
 
     public Item() {
     }
 
-    public Item(BigDecimal price, int quantity, BigDecimal value) {
+    public Item(BigDecimal price, int quantity) {
         this.price = price;
         this.quantity = quantity;
-        this.value = value;
+        this.value = price.multiply(new BigDecimal(quantity));
     }
 
     @Id
@@ -50,6 +51,16 @@ public class Item {
     @Column(name = "VALUE")
     public BigDecimal getValue() {
         return value;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     private void setId(int id) {

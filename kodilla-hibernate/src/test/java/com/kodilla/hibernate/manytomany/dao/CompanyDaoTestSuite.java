@@ -23,7 +23,6 @@ public class CompanyDaoTestSuite {
 
     @Test
     public void testSaveManyToMany() {
-        companyDao.deleteAll();
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarkson = new Employee("Stephanie", "Clarkson");
@@ -58,11 +57,14 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
-
     }
 
     @Test
     public void testSurnameAndCompany() {
+        //CleanUpBeforeTest
+        companyDao.deleteAll();
+        employeeDao.deleteAll();
+
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarkson = new Employee("Stephanie", "Clarkson");
@@ -84,16 +86,16 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        //When
         companyDao.save(softwareMachine);
         companyDao.save(dataMaesters);
         companyDao.save(greyMatter);
 
+        //When
         List<Employee> employeeSurname = employeeDao.retrieveEmployeeByLastname("Clarkson");
-        List<Company> companyName = companyDao.firstThreeCharactersOfCompany("Data Maesters");
+        List<Company> companyName = companyDao.firstThreeCharactersOfCompany("Sof");
 
         //then
         Assert.assertEquals(1, employeeSurname.size());
-        //Assert.assertEquals(1, companyName.size());
+        Assert.assertEquals(1, companyName.size());
     }
 }

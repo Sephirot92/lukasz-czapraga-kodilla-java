@@ -1,11 +1,10 @@
 package com.kodilla.testing.shape;
-import java.lang.Math.*;
 
 public class Circle implements Shape {
     private String name;
     protected double radius;
 
-    public Circle (String name, double radius){
+    public Circle(String name, double radius) {
         this.name = name;
         this.radius = radius;
     }
@@ -15,7 +14,7 @@ public class Circle implements Shape {
         return name;
     }
 
-    public double getRadius(){
+    public double getRadius() {
         return radius;
     }
 
@@ -45,8 +44,9 @@ public class Circle implements Shape {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Circle name is " + name + " and it's radius is " + radius;
     }
 }

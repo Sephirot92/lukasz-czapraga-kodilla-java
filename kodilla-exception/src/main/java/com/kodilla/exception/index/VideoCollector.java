@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoCollector {
-    public List<String> getCollection(){
+    public List<String> getCollection() {
         ArrayList<String> videos = new ArrayList<>();
         videos.add("Damn nice movie");
         return videos;

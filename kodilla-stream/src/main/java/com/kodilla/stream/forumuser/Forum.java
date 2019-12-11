@@ -2,13 +2,12 @@ package com.kodilla.stream.forumuser;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Forum {
-    private final List<ForumUser> forumUsersList= new ArrayList<>();
+    private final List<ForumUser> forumUsersList = new ArrayList<>();
 
-    public Forum(){
-        forumUsersList.add(new ForumUser(101, "JohnRatnicky", 'm', 2001, 12, 10, 15 ));
+    public Forum() {
+        forumUsersList.add(new ForumUser(101, "JohnRatnicky", 'm', 2001, 12, 10, 15));
         forumUsersList.add(new ForumUser(102, "MonikaRokicky", 'f', 1998, 10, 13, 0));
         forumUsersList.add(new ForumUser(103, "DarrylJ", 'm', 1998, 11, 12, 10));
         forumUsersList.add(new ForumUser(104, "Montolivo", 'm', 2005, 10, 1, 15));
@@ -19,7 +18,8 @@ public class Forum {
         forumUsersList.add(new ForumUser(109, "Jonataninho", 'm', 1994, 4, 12, 639));
 
     }
-    public List<ForumUser> getList(){
+
+    public List<ForumUser> getList() {
         return new ArrayList<>(forumUsersList);
     }
 }

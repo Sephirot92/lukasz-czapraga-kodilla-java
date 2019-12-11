@@ -1,7 +1,5 @@
 package com.kodilla.stream.forum;
 
-import com.kodilla.stream.forumuser.Forum;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -18,11 +16,11 @@ public final class ForumUser {
         this.location = location;
     }
 
-    public void addFriend(ForumUser user){
+    public void addFriend(ForumUser user) {
         friends.add(user);
     }
 
-    public boolean removeFriend(ForumUser user){
+    public boolean removeFriend(ForumUser user) {
         return friends.remove(user);
     }
 
@@ -54,7 +52,7 @@ public final class ForumUser {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!( o instanceof ForumUser)) return false;
+        if (!(o instanceof ForumUser)) return false;
         ForumUser forumUser = (ForumUser) o;
         return username.equals(forumUser.username);
 
@@ -65,12 +63,13 @@ public final class ForumUser {
         return username.hashCode();
     }
 
-    public Set<String> getLocationOfFriends(){
+    public Set<String> getLocationOfFriends() {
         return friends.stream()
                 .map(friend -> friend.getLocation())
                 .collect(Collectors.toSet());
     }
-    public Set<String> getLocationOfFriendsOfFriends(){
+
+    public Set<String> getLocationOfFriendsOfFriends() {
         return friends.stream()
                 .flatMap(user -> user.getFriends().stream())
                 .filter(user -> user != this)

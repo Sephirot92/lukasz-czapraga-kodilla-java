@@ -1,13 +1,13 @@
 package com.kodilla.exception.nullpointer;
 
 public class NullPointerExceptionRunner {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         User user = null;
 
         MessageSender messageSender = new MessageSender();
         try {
             messageSender.sendMessageTo(user, "Hello!");
-        } catch (MessageNotSentException e){
+        } catch (MessageNotSentException e) {
             System.out.println("Message is not sent!" + "But I am still online :D ");
         }
         System.out.println("Process other logic!");

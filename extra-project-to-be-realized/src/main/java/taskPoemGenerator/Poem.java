@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Poem {
-    public static void main (String [] args){
+    public static void main(String[] args) {
         Subject subject = new Subject();
         Proclamation proclamation = new Proclamation();
         Adverbial adverbial = new Adverbial();
@@ -24,15 +24,14 @@ public class Poem {
 
             Random randomVerseGenerator = new Random();
 
-            for (int i = 0; i < randomVerseGenerator.nextInt(10); i ++){
-                Sentence sentence = new Sentence(subject.generate(), proclamation.generate(), adverbials.get(randoms.nextInt(adverbials.size())) );
+            for (int i = 0; i < randomVerseGenerator.nextInt(10); i++) {
+                Sentence sentence = new Sentence(subject.generate(), proclamation.generate(), adverbials.get(randoms.nextInt(adverbials.size())));
 
                 System.out.println(sentence);
                 System.out.println();
             }
 
         }
-
 
 
     }

@@ -24,7 +24,8 @@ public class AdverbialTime extends Adverbial {
         return adverbialTime.getRandomPart(words);
 
     }
-    public String getRandomPart(List<String> words){
+
+    public String getRandomPart(List<String> words) {
         Random random = new Random();
         return words.get(random.nextInt(words.size()));
     }

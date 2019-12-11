@@ -16,7 +16,7 @@ public class Triangle implements Shape {
         return name;
     }
 
-    public double getWallLength(){
+    public double getWallLength() {
         return wallLength;
     }
 
@@ -26,7 +26,7 @@ public class Triangle implements Shape {
 
     @Override
     public double getField() {
-        double field = (wallLength * height) /2;
+        double field = (wallLength * height) / 2;
         return field;
     }
 
@@ -53,8 +53,9 @@ public class Triangle implements Shape {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
     @Override
-    public String toString(){
-        return "Triangle name is "+ name + " and it's wall length is  " + wallLength + ", also, it height is " + height;
+    public String toString() {
+        return "Triangle name is " + name + " and it's wall length is  " + wallLength + ", also, it height is " + height;
     }
 }

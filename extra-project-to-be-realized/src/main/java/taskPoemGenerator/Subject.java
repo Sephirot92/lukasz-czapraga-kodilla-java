@@ -23,7 +23,8 @@ public class Subject extends SentencePart {
         words.add("Wiocha");
         words.add("Pajda");
         words.add("Piekło");
-        words.add("Mors");;
+        words.add("Mors");
+        ;
         words.add("Vega");
         words.add("Toyota");
         words.add("Honda");
@@ -35,7 +36,8 @@ public class Subject extends SentencePart {
         return subject.getRandomPart(words);
 
     }
-    public String getRandomPart(List<String> words){
+
+    public String getRandomPart(List<String> words) {
         Random random = new Random();
         return words.get(random.nextInt(words.size()));
     }

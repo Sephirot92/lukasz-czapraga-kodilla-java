@@ -1,7 +1,7 @@
 package task2and3;
 
 public class StringCollectionRunner {
-    public static void main (String [] args) {
+    public static void main(String[] args) {
         StringCollection stringCollection = new StringCollection();
 
         stringCollection.addElement("Meow");

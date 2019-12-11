@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class BookTestSuite {
     @Test
-    public void testGetListUsingFor(){
+    public void testGetListUsingFor() {
         //given
         BookDirectory bookDirectory = new BookDirectory();
 
@@ -19,15 +19,16 @@ public class BookTestSuite {
 
         //then
         int numberOfBooksPublishedAfter2007 = 0;
-        for (Book book: books){
-            if (book.getYearOfPublication()> 2007){
+        for (Book book : books) {
+            if (book.getYearOfPublication() > 2007) {
                 numberOfBooksPublishedAfter2007++;
             }
         }
         Assert.assertEquals(3, numberOfBooksPublishedAfter2007);
     }
+
     @Test
-    public void testGetListUsingIntStream(){
+    public void testGetListUsingIntStream() {
         //Given
         BookDirectory bookDirectory = new BookDirectory();
 
@@ -36,7 +37,7 @@ public class BookTestSuite {
 
         //Then
         long numberOfBooksPublishedAfter2007 = IntStream.range(0, books.size())
-                .filter(n -> books.get(n).getYearOfPublication()>2007)
+                .filter(n -> books.get(n).getYearOfPublication() > 2007)
                 .count();
         Assert.assertEquals(3, numberOfBooksPublishedAfter2007);
     }

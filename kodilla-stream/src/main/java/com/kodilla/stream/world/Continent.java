@@ -1,6 +1,5 @@
 package com.kodilla.stream.world;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,7 +10,7 @@ public final class Continent {
         this.countries = countries;
     }
 
-    public void addCountry(Country country){
+    public void addCountry(Country country) {
         countries.add(country);
     }
 

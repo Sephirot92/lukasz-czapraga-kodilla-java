@@ -23,19 +23,21 @@ public class Proclamation extends SentencePart {
         words.add("spieszy się");
         words.add("liże");
         words.add("połyka");
-        words.add("obiecuje");;
+        words.add("obiecuje");
+        ;
         words.add("oddaje");
         words.add("myje się");
         words.add("bierze");
         words.add("poddaje się");
         words.add("myśli");
 
-        Proclamation proclamation= new Proclamation();
+        Proclamation proclamation = new Proclamation();
 
         return proclamation.getRandomPart(words);
 
     }
-    public String getRandomPart(List<String> words){
+
+    public String getRandomPart(List<String> words) {
         Random random = new Random();
         return words.get(random.nextInt(words.size()));
     }

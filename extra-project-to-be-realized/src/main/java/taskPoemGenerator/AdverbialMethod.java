@@ -19,12 +19,13 @@ public class AdverbialMethod extends Adverbial {
         words.add("potulnie");
 
 
-        AdverbialMethod adverbialMethod= new AdverbialMethod();
+        AdverbialMethod adverbialMethod = new AdverbialMethod();
 
         return adverbialMethod.getRandomPart(words);
 
     }
-    public String getRandomPart(List<String> words){
+
+    public String getRandomPart(List<String> words) {
         Random random = new Random();
         return words.get(random.nextInt(words.size()));
     }

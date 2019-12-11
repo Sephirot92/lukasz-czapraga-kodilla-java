@@ -1,29 +1,32 @@
 package com.kodilla.testing.forum;
 
 import com.kodilla.testing.user.SimpleUser;
-import org.junit.*;
 
 
 public class ForumTestSuite {
 
-    @Before
-    public void before(){
-        System.out.println("Test has just begun");
-    }
-    @After
-    public void after(){
-        System.out.println("Test Case: End");
-    }
     @BeforeClass
-    public static void beforeClass(){
+    public static void beforeClass() {
         System.out.println("Test Suite: begins");
     }
+
     @AfterClass
-    public static void afterClass(){
+    public static void afterClass() {
         System.out.println("Test suite: End.");
     }
+
+    @Before
+    public void before() {
+        System.out.println("Test has just begun");
+    }
+
+    @After
+    public void after() {
+        System.out.println("Test Case: End");
+    }
+
     @Test
-    public void testCaseUsername(){
+    public void testCaseUsername() {
         //Arrange
         SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
         //act
@@ -31,8 +34,9 @@ public class ForumTestSuite {
         // assert
         Assert.assertEquals("theForumUser", result);
     }
+
     @Test
-    public void testCaseRealName(){
+    public void testCaseRealName() {
         //Arrange
         SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
         //act

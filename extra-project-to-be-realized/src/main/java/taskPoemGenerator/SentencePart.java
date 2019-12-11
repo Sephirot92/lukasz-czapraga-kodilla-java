@@ -1,7 +1,7 @@
 package taskPoemGenerator;
 
 public class SentencePart {
-    public String generate(){
+    public String generate() {
 
         return null;
     }

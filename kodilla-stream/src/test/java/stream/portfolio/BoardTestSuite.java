@@ -8,17 +8,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
-    public Board prepareTestData(){
+    public Board prepareTestData() {
 
         //users
         User user1 = new User("developer1", "John Smith");
@@ -51,8 +48,9 @@ public class BoardTestSuite {
         project.addTaskList(taskListDone);
         return project;
     }
+
     @Test
-    public void testAddTaskList(){
+    public void testAddTaskList() {
         //Given
         Board project = prepareTestData();
 
@@ -61,8 +59,9 @@ public class BoardTestSuite {
         //Then
         Assert.assertEquals(3, project.getTaskLists().size());
     }
+
     @Test
-    public void testAddTaskListFindUserTasks(){
+    public void testAddTaskListFindUserTasks() {
         //given
         Board project = prepareTestData();
 
@@ -77,8 +76,9 @@ public class BoardTestSuite {
         Assert.assertEquals(user, tasks.get(0).getAssignedUser());
         Assert.assertEquals(user, tasks.get(1).getAssignedUser());
     }
+
     @Test
-    public void testAddTaskListFindOutdatedTasks(){
+    public void testAddTaskListFindOutdatedTasks() {
         //Given
         Board project = prepareTestData();
 
@@ -95,8 +95,9 @@ public class BoardTestSuite {
         Assert.assertEquals(1, tasks.size());
         Assert.assertEquals("HQLs for analysis", tasks.get(0).getTitle());
     }
+
     @Test
-    public void testAddTaskListFindLongTasks(){
+    public void testAddTaskListFindLongTasks() {
         //given
         Board project = prepareTestData();
 
@@ -106,15 +107,16 @@ public class BoardTestSuite {
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t-> t.getCreated())
+                .map(t -> t.getCreated())
                 .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
                 .count();
 
         //then
         Assert.assertEquals(2, longTasks);
     }
+
     @Test
-    public void testAddTaskListAverageWorkingOnTask(){
+    public void testAddTaskListAverageWorkingOnTask() {
 
         //given
         Board project = prepareTestData();
@@ -158,7 +160,8 @@ public class BoardTestSuite {
         Assert.assertEquals(10, averageTotal, 0.001);
 
     }
-    private Long display(Long d){
+
+    private Long display(Long d) {
         System.out.println(d);
         return d;
     }

@@ -34,6 +34,7 @@ public class ForumComment {
         if (!commentBody.equals(that.commentBody)) return false;
         return author.equals(that.author);
     }
+
     @Override
     public int hashCode() {
         int result = forumPost.hashCode();

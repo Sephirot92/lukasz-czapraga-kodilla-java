@@ -9,7 +9,8 @@ public class BookLibrary {
     public BookLibrary(LibraryDatabase libraryDatabase) {
         this.libraryDatabase = libraryDatabase;
     }
-    public List<Book> listBookWithCondition(String titleFragment){
+
+    public List<Book> listBookWithCondition(String titleFragment) {
         List<Book> bookList = new ArrayList<Book>();
         if (titleFragment.length() < 3) return bookList;
         List<Book> resultList = libraryDatabase.listBookWithCondition(titleFragment);
@@ -18,7 +19,8 @@ public class BookLibrary {
         return bookList;
 
     }
-    public List<Book> listBooksInHadsOf(LibraryUser libraryUser){
+
+    public List<Book> listBooksInHadsOf(LibraryUser libraryUser) {
         List<Book> userBooks = libraryDatabase.listBookInHAndsOf(libraryUser);
         return userBooks;
     }

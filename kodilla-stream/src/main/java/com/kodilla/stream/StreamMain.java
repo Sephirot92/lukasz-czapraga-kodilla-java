@@ -1,20 +1,10 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.book.Book;
-import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.*;
-import com.kodilla.stream.person.People;
-import com.kodilla.stream.reference.FunctionalCalculator;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamMain {
@@ -23,7 +13,7 @@ public class StreamMain {
         Map<Integer, Object> theResultForum = forum.getList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'm')
                 .filter(forumUser -> LocalDate.now().getYear() - forumUser.getBorn().getYear() >= 20)
-                .filter(forumUser -> forumUser.getPublicatedPosts()>=1)
+                .filter(forumUser -> forumUser.getPublicatedPosts() >= 1)
                 .collect(Collectors.toMap(ForumUser::getUserUniqueNumber, forumUser -> forumUser));
 
         System.out.println("# Elements :" + theResultForum.size());
@@ -98,6 +88,7 @@ public class StreamMain {
         System.out.println("# elements :" + theResultListOfBooks.size());
         theResultListOfBooks.stream()
                 .forEach(System.out::println);
-    */}
+    */
+    }
 
 }

@@ -4,7 +4,7 @@ public class Square implements Shape {
     private String name;
     private double side;
 
-    public Square (String name, double side){
+    public Square(String name, double side) {
         this.name = name;
         this.side = side;
     }
@@ -14,9 +14,10 @@ public class Square implements Shape {
         return name;
     }
 
-    public double getSide(){
+    public double getSide() {
         return side;
     }
+
     @Override
     public double getField() {
         double field = side * side;
@@ -43,8 +44,9 @@ public class Square implements Shape {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Square name is " + name + " and it's side length is " + side;
     }
 }

@@ -1,16 +1,13 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class StatisticsCounter {
     int usersNumber;
     int postsNumber;
-    int  commentsNumber;
+    int commentsNumber;
     double avgPostsPerUser;
     double avgCommentsPerUser;
     double avgCommentsPerPost;
-    
+
     public int getUsersNumber() {
         return usersNumber;
     }
@@ -47,15 +44,16 @@ public class StatisticsCounter {
                 '}';
     }
 
-    public void calculateAdvStatistics(Statistics statistics){
+    public void calculateAdvStatistics(Statistics statistics) {
         usersNumber = statistics.userNames().size();
         postsNumber = statistics.postCount();
         commentsNumber = statistics.commentsCount();
-        avgPostsPerUser = getPostsNumber()/(float)getUsersNumber();
-        avgCommentsPerUser = getCommentsNumber()/(float)getUsersNumber();
-        avgCommentsPerPost = getCommentsNumber()/(float)getPostsNumber();
+        avgPostsPerUser = getPostsNumber() / (float) getUsersNumber();
+        avgCommentsPerUser = getCommentsNumber() / (float) getUsersNumber();
+        avgCommentsPerPost = getCommentsNumber() / (float) getPostsNumber();
     }
-    public void showStatistics(){
+
+    public void showStatistics() {
         System.out.println("Total number of users is " + usersNumber);
         System.out.println("Total post number is " + postsNumber);
         System.out.println("Total comments number is " + commentsNumber);

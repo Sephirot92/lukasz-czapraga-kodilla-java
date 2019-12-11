@@ -12,7 +12,7 @@ import java.util.List;
 
 public class WorldTestSuite {
     @Test
-    public void testGetPeopleQuantity(){
+    public void testGetPeopleQuantity() {
         //given
         World worldall = new World();
 

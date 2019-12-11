@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class WeatherForecastTestSuite {
     @Test
-    public void testCalculatedForecastWithStub(){
+    public void testCalculatedForecastWithStub() {
         //Given
         Temperatures temperatures = new TemperaturesStub();
         WeatherForecast weatherForecast = new WeatherForecast(temperatures);

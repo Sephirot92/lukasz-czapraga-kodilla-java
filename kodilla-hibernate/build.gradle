@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot'
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
     id 'java'
 }
 
@@ -19,4 +19,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     compile 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
 }

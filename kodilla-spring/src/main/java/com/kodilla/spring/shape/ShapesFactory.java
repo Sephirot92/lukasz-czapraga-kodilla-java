@@ -12,7 +12,7 @@ public class ShapesFactory {
         return new Square();
     }
 
-    @Bean
+//    @Bean
     public Shape choosenShape() {
         Shape theShape;
         Random generator = new Random();

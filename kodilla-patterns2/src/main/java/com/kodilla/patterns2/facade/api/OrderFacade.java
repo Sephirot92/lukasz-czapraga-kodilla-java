@@ -1,6 +1,9 @@
 package com.kodilla.patterns2.facade.api;
 
 import com.kodilla.patterns2.facade.ShopService;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +12,16 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public final class OrderFacade {
+@Aspect
+public class OrderFacade {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
     @Autowired
     private ShopService shopService;
 
+    @After("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))" +
+            "&& args(order) && target(userId)")
     public void processOrder(final OrderDto order, final Long userId) throws OrderProcessingException {
+        LOGGER.info("Order " + order.getItems().toString() + ", userID equals to " + userId);
         boolean wasError = false;
         long orderId = shopService.openOrder(userId);
         LOGGER.info("Registering new order, ID: " + orderId);

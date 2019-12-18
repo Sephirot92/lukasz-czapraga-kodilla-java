@@ -11,12 +11,12 @@ public class MedianAdaptee implements BookStatistics {
     Statistics statistics = new Statistics();
 
     @Override
-    public int averagePublicationYear(Map<BookSignature, Book> books) {
+    public int averagePublicationYear(Map<BookSignature, com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book> books) {
         return statistics.averagePublicationYear(books);
     }
 
     @Override
-    public int medianPublicationYear(Map<BookSignature, Book> books) {
+    public int medianPublicationYear(Map<BookSignature, com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book> books) {
         return statistics.medianPublicationYear(books);
     }
 }

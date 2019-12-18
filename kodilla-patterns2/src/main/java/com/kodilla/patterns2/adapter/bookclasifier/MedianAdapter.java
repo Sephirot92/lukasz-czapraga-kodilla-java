@@ -11,8 +11,8 @@ import java.util.Set;
 
 public class MedianAdapter extends MedianAdaptee implements Classifier {
     @Override
-    public int publicationYearMedian(Set<Book> bookSet) {
-        Map<BookSignature, Book> booksMap = new HashMap<>();
+    public int publicationYearMedian(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> bookSet) {
+        Map<BookSignature, com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> booksMap = new HashMap<>();
         int median = 0;
         for (int i = 0; i < 10; i++)
             booksMap.put(new BookSignature(bookSet.iterator().next().getSignature()),

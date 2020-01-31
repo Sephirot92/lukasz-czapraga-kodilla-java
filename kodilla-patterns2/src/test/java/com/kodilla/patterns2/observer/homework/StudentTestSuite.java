@@ -18,6 +18,6 @@ public class StudentTestSuite {
         homework01.gradeHomework();
         boolean test = homework01.isAccepted();
         //Then
-        assertEquals(test, true);
+        assertEquals(test, false);
     }
 }

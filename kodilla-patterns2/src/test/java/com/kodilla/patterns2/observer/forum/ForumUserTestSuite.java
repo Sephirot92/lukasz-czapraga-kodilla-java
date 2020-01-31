@@ -26,7 +26,7 @@ public class ForumUserTestSuite {
         javaToolsForum.addPost("When I try to log in I got 'bad credentials' message.");
         //Then
         assertEquals(3, johnSmimth.getUpdateCount());
-        assertEquals(2, ivoneEscobar);
-        assertEquals(5, jessiePinkman);
+        assertEquals(2, ivoneEscobar.getUpdateCount());
+        assertEquals(5, jessiePinkman.getUpdateCount());
     }
 }

@@ -16,4 +16,5 @@ public class Figure {
     public String getColor() {
         return color;
     }
+
 }
